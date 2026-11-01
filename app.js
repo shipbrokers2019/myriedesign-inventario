@@ -3,8 +3,8 @@
 "use strict";
 
 /* ---------- catálogos ---------- */
-const TIPOS = ["Dije","Cadena","Pulsera","Placa","Llavero","Zarcillos","Anillo","Tobillera","Sobre","Libro","Péndulo","Bolígrafo","Placa de mascota","Otro"];
-const PREF = {Dije:"DIJ",Cadena:"CAD",Pulsera:"PUL",Placa:"PLA",Llavero:"LLA",Zarcillos:"ZAR",Anillo:"ANI",Tobillera:"TOB",Sobre:"SOB",Libro:"LIB","Péndulo":"PEN","Bolígrafo":"BOL","Placa de mascota":"PLM",Otro:"OTR"};
+const TIPOS = ["Dije","Cadena","Pulsera","Placa","Llavero","Zarcillos","Anillo","Tobillera","Sobre","Libro","Péndulo","Bolígrafo","Placa de mascota","Tag","Otro"];
+const PREF = {Dije:"DIJ",Cadena:"CAD",Pulsera:"PUL",Placa:"PLA",Llavero:"LLA",Zarcillos:"ZAR",Anillo:"ANI",Tobillera:"TOB",Sobre:"SOB",Libro:"LIB","Péndulo":"PEN","Bolígrafo":"BOL","Placa de mascota":"PLM",Tag:"TAG",Otro:"OTR"};
 const MATS = ["Acero","Oro / baño de oro","Fantasía"];
 const MATCODE = {"Acero":"AC","Oro / baño de oro":"OR","Fantasía":"FA"};
 const FORMAS = ["Corazón","Huesito","Cuero","Redondo","Cuadrado","Rectangular","Ovalado","Estrella","Cruz","Letra","Infinito","Mariposa","Trébol","Luna"];
