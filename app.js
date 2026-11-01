@@ -613,7 +613,13 @@ function boot(){
   netBanner();
   const cfg = window.MYRIE_CONFIG || {};
   const ok = cfg.supabaseUrl && /^https:\/\//.test(cfg.supabaseUrl) && cfg.supabaseAnonKey && !/PEGA_AQUI/.test(cfg.supabaseUrl+cfg.supabaseAnonKey);
-  if(!ok || !window.supabase){ $("#cfgWarn").hidden=false; showLogin(); return; }
+  if(!ok || !window.supabase){
+    /* Si un archivo no cargó por un corte de internet, se recarga una sola vez antes de avisar. */
+    let tried=false; try{ tried=sessionStorage.getItem("myrie-retry")==="1"; sessionStorage.setItem("myrie-retry","1"); }catch{}
+    if(!tried && navigator.onLine){ setTimeout(()=>location.reload(), 800); return; }
+    $("#cfgWarn").hidden=false; showLogin(); return;
+  }
+  try{ sessionStorage.removeItem("myrie-retry"); }catch{}
   sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { auth:{ persistSession:true, autoRefreshToken:true } });
   /* Supabase pide no llamar a la base dentro de este aviso; por eso el trabajo va en setTimeout. */
   sb.auth.onAuthStateChange((event, session)=>{
